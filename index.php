@@ -28,19 +28,15 @@ include 'brain/init.php';
 
 $module = Router::parse_url();
 
-
-
-
-
-
-if (Brain::sessionencours()) {
-    
-} else {
-
-    if (!Router::module_exist($module)) {
-        header('location:' . HOMEURL);
-    }
-    //include 'modules/' . $module . '/' . $module . '.php';
-    
-    include 'modules/admin/admin.php';
+if(isset($_GET['deconnexion'])){
+    Brain::deconnexion();
 }
+
+
+if (!Router::module_exist($module)) {
+    header('location:' . HOMEURL);
+} else {
+    include 'modules/' . $module . '/' . $module . '.php';
+}
+
+//include 'modules/admin/admin.php';

@@ -6,9 +6,26 @@
  * and open the template in the editor.
  */
 
-if (isset($_POST['password'])) {
-    header('location:index.php');
+
+if (isset($_POST['password']) && isset($_POST['email'])) {
+
+    $login = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $resultat = Brain::connexion_admin($login, $password);
+    /*
+     * S'il y a un code d'eurreur l'admin ne peux pas se connecté
+     */
+    if (!isset($resultat['erreur_code'])) {
+
+        Brain::ouvrirSession($resultat);
+
+        header('location:' . HOMEURL);
+    }
 } else {
+
+
     include 'globale/headLogin.php';
+
     include 'vue/vue.php';
 }
+

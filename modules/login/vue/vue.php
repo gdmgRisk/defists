@@ -12,17 +12,22 @@
         <a class="hiddenanchor" id="toregister"></a>
         <a class="hiddenanchor" id="tologin"></a>
 
-        <div id="wrapper">
-            <div id="login" class="animate form">
-                <section class="login_content">
-                    <form class="form" method="post" action="">
+        <div class="col-lg-12">
+            
+            <div class="left col-lg-6" style="padding: 10%">
+                <img src="design/Pentestfr1.png" class="img-circle img-thumbnail" style="max-height: 400px"/>
+            </div>
+            
+            <div class="animate form col-lg-4">
+                <section class="login_content" style="padding-top: 40%">
+                    <form class="form" method="post" action="<?php echo HOMEURL;?>/login">
                         <div class="form-group">
                             <label>Login</label>
-                            <input type="text" class="form-control" placeholder="Votre email" required="" />
+                            <input name="email" type="text" class="form-control" placeholder="Votre email" required="" />
                         </div>
                         <div class="form-group">
                             <label>Mot de passe</label>
-                            <input type="password" class="form-control" placeholder="Mot de passe" required="" />
+                            <input name="password" type="password" class="form-control" placeholder="Mot de passe" required="" />
                         </div>
                         <div>
                             <button type="submit" class="btn btn-default submit" href="">Connexion</button>

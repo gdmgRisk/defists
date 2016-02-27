@@ -32,9 +32,6 @@
         <link href="<?php echo HOMEURL; ?>/design/css/floatexamples.css" rel="stylesheet" type="text/css" />
 
         <script src="<?php echo HOMEURL; ?>/design/js/jquery.min.js"></script>
-        <script src="<?php echo HOMEURL; ?>/design/js/nprogress.js"></script>
-
-        <script src="<?php echo HOMEURL; ?>/design/js/modernizr.custom.js"></script>
 
 
 
@@ -42,6 +39,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo HOMEURL; ?>/design/css/component.css" />
 
 
+        <link href="<?php echo HOMEURL; ?>/design/css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
 
         <!--Material design -->
         <link rel="stylesheet" type="text/css" href="<?php echo HOMEURL; ?>/design/css/mui.css"/>

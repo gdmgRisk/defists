@@ -61,7 +61,7 @@ class Router {
         $array_lien = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
         $params = array();
-        if (sizeof($array_lien) > 3) {
+        if (sizeof($array_lien) > 2) {
             $i = 1;
             foreach ($array_lien as $value) {
                 if ($i != 1 && $i != 2) {

@@ -8,13 +8,13 @@
 
 <div class="container">
 
-    <div class="content center-block" style="padding: 4.333333333333%">
+    <div class="content center-block" style="padding: 10%">
 
         <div class="clearfix">
             <nav id="menu" class="navtups">					
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="<?php echo HOMEURL;?>/admin/listClients">
                             <span class="icontups">
                                 <i aria-hidden="true" class="fa fa-users"></i>
                             </span>

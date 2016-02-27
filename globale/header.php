@@ -16,14 +16,45 @@
                     <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                 </div>-->
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="">
 
-                        <a href="javascript:;" data-toggle="modal" data-target=".bs-example-modal-sm">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <?php
+                    if (!Brain::sessionencours()) {
+                        echo '<li class="">
+
+                        <a href="' . HOMEURL . '/login">
                             Connexion
                         </a>
 
+                    </li>';
+                    } else {
+
+
+                        if ($_SESSION['privilege'] == 0) {
+                            $typeadmin = 'adminsite';
+                        } else {
+                            $typeadmin = 'admin';
+                        }
+                        echo '<li class="">
+
+                        <a href="' . HOMEURL . '?deconnexion=true" >
+                            Deconnexion
+                        </a>
+
                     </li>
+                    <li class="">
+
+                        <a href="' . HOMEURL . '/' . $typeadmin . '">
+                            Profil
+                        </a>
+
+                    </li>
+
+
+';
+                    }
+                    ?>
                     <!--Menu-->
                     <li class="">
 
@@ -54,6 +85,23 @@
                             <i class=""></i>menu
                         </a>
                     </li> <!--Menu-->
+                    
+                     <?php
+                    if (!Brain::sessionencours()) {
+                       
+                        echo '<li class="">
+
+                                    <a href="' . HOMEURL . '/inscription" >
+                                        Inscription
+                                    </a>
+
+                            </li>';
+                    }
+                    ?>
+                    
+                    
+                    
+                    
                     <li class="">
 
                         <a href="javascript:;">

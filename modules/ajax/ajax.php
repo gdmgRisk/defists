@@ -8,38 +8,22 @@
 
 $params = Router::parametres_url();
 
-
-
-if (isset($_POST['ajoutadmin'])) {
-    
-}
-
+/**
+ * 
+ */
 if (Brain::sessionencours() && Brain::privilegeAdmin()) {
-
-    include 'globale/head.php';
-    include 'globale/header.php';
-    include 'vue/bannAdmin.php';
-
-    /**
-     * 
-     */
     if (sizeof($params) > 0) {
-
-        $vue = __DIR__ . '/vue/' . $params[0] . '.php';
+        $vue = __DIR__ . '/function/' . $params[0] . '.php';
 
         if (is_file($vue)) {
-            include 'vue/' . $params[0] . '.php';
+            include 'function/' . $params[0] . '.php';
         } else {
 
-            include 'vue/default.php';
+            include 'function/listClients.php.php';
         }
     } else {
-
-        include 'vue/default.php';
+        include 'function/listClients.php.php';
     }
-
-//include 'vue/default.php';
-    include 'globale/footer.php';
 } else {
 
     header('location:' . HOMEURL);
