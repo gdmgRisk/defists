@@ -9,7 +9,23 @@
 
     <div class="content center-block" style="">
 
-        <div class="banniere" style="height:200px; width: 100%; background-color: #003973 ">
+        <div class="banniere" style="height:200px; width: 100%; background-color: #003973; color:white; ">
+            <div class="col-lg-4">
+                <h2>Prévention</h2>
+                <img style="height:120px; zwidth: 100%;" class="col-xs-4 img-responsive img-circle " src="<?php echo HOMEURL; ?>/design/images/prevent.png">
+                <div class="col-xs-8">Inscrivez vous rapidement</div>
+            </div>
+            <div class="col-lg-4">
+                <h2>Détection</h2>
+                <img style="height:120px; zwidth: 100%;" class="col-xs-4 img-responsive img-circle " src="<?php echo HOMEURL; ?>/design/images/scans2.jpg">
+                <div class="col-xs-8">Votre site sera scanné regulierement</div>
+            </div>
+
+            <div class="col-lg-4">
+                <h2>Informations</h2>
+                <img style="height:120px; zwidth: 100%;" class="col-xs-4 img-responsive img-circle " src="<?php echo HOMEURL; ?>/design/images/infos.png">
+                <div class="col-xs-8">Soyez toujours informez des failles eventuelles</div>
+            </div>
 
         </div>
         <div class="clearfix container" style="padding:2%">

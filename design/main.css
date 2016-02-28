@@ -118,11 +118,91 @@ and open the template in the editor.
 }
 
 .log{
-    color: rgb(255, 162, 0);
+
     list-style: none;
 }
 
 .log li{
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-family: "Courier New";
+}
+
+#laNav li{
+    font-size: 1.3em;
+}
+#laNav li:hover{
+    border-bottom: #f68a1e 3px solid;
+    border-width:5px;
+    zborder-radius: 10px;
+    transition-duration: 0.3s;
+}         
+@keyframes loading {
+  0% {
+    transform-origin: 100% 100%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform-origin: 100% 100%;
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  position: relative;
+  display: block;
+  z-index: 13;
+  margin: 15px auto;
+  width: 100px;
+  height: 100px;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.loading:hover {
+  border-color: rgba(210, 210, 210, 0.5);
+}
+.loading:hover:before {
+  background-color: rgba(210, 210, 210, 0.4);
+}
+.loading:before {
+  position: absolute;
+  display: block;
+  content: '';
+  z-index: 12;
+  top: 4px;
+  left: 4px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: #333;
+}
+.loading:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  content: '';
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+  width: 45px;
+  height: 45px;
+  border-radius: 200px 0 0 0;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, #459ad7 50%, #459ad7 100%);
+  animation: loading .9s linear infinite;
+}
+
+
+
+
+.floatHox{
+    border-radius: 5px;
+    height: 150px;
+    width: 250px;
+    background-color: rgba(0, 102, 102, 0.8);
+    position: fixed;
+    margin: 20px;
+    z-index: 9;
+    float: left;
+    bottom: 0px;
+    right: 0px;
 }

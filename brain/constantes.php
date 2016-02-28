@@ -9,6 +9,7 @@
 
 define('HOMEURL', 'http://localhost/defists');
 
+define('HOMEDIR', 'C:\wamp64\www\defists');
 
 define('PRIVILEGEADSITE', 0);
 define('PRIVILEGEADGENERAL', 1);

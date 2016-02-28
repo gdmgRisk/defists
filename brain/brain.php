@@ -106,6 +106,23 @@ class Brain {
         session_destroy();
     }
 
+    static function getFileRapport($site_id) {
+        $bdd = Connexion::connexionbdd();
+
+        $requete = $bdd->prepare("SELECT scanfile FROM t_site_scan where site_id=? ") or die(print_r($bdd->errorInfo()));
+
+        $requete->execute(array($site_id));
+        $tab = array();
+
+        foreach ($requete as $r) {
+
+            $tab[] = $r;
+        }
+        $requete->closeCursor();
+
+        return $tab;
+    }
+
     /*
      * @Param 
      * @retur 
@@ -116,6 +133,49 @@ class Brain {
         $bdd = Connexion::connexionbdd();
 
         $requete = $bdd->prepare("SELECT * FROM t_site ") or die(print_r($bdd->errorInfo()));
+
+        $requete->execute();
+        $tab = array();
+
+        foreach ($requete as $r) {
+
+            $tab[] = $r;
+        }
+        $requete->closeCursor();
+
+        return $tab;
+    }
+
+    
+    
+    static function charger_clientsiNFO($id) {
+        $bdd = Connexion::connexionbdd();
+
+        $requete = $bdd->prepare("SELECT ts.id , ts.nom ,ts.url, ts.ip, ts.date , ts.sms , ts.etat , sc.scanfile FROM t_site ts INNER join t_site_scan sc ON ts.id=sc.site_id where ts.id= ?") or die(print_r($bdd->errorInfo()));
+
+        $requete->execute(array($id));
+        $tab = array();
+
+        foreach ($requete as $r) {
+
+            $tab[] = $r;
+        }
+        $requete->closeCursor();
+
+        return $tab;
+    }
+
+    
+    
+    
+    /**
+     * 
+     * @return type
+     */
+    static function charger_active_clients() {
+        $bdd = Connexion::connexionbdd();
+
+        $requete = $bdd->prepare("SELECT * FROM t_site where etat=1") or die(print_r($bdd->errorInfo()));
 
         $requete->execute();
         $tab = array();
@@ -190,18 +250,21 @@ class Brain {
 
     static function sauverScan() {
         $bdd = Connexion::connexionbdd();
-        $requete = $bdd->prepare("INSERT into t_scan (date ,etat ,rapport ,id_admin) "
-                . "value (:d, :e, :r, :ida)") or die(print_r($bdd->errorInfo()));
+        $requete = $bdd->prepare("INSERT into t_scan (date ,rapport ,id_admin) "
+                . "value (NOW(), :r, :ida)") or die(print_r($bdd->errorInfo()));
 
-        $requete->bindParam(':d', date('Y-m-d'));
-        $requete->bindParam(':e', 0);
-        $requete->bindParam(':r', 'null');
+        $requete->bindValue(':r', '');
         $requete->bindParam(':ida', $_SESSION['id']);
 
         $requete->execute();
         return $bdd->lastInsertId('id');
     }
 
+    /**
+     * 
+     * @param int $id 
+     * @param type $chemin
+     */
     static function rapportScan($id, $chemin) {
         $bdd = Connexion::connexionbdd();
         $requete = $bdd->prepare("UPDATE t_scan SET rapport = ? WHERE id=?") or die(print_r($bdd->errorInfo()));
@@ -211,9 +274,29 @@ class Brain {
     static function scanExist() {
         $bdd = Connexion::connexionbdd();
 
-        $requete = $bdd->prepare("SELECT * FROM t_scan WHERE date =?") or die(print_r($bdd->errorInfo()));
+        $requete = $bdd->prepare("SELECT * FROM t_scan WHERE date = ? and etat=1") or die(print_r($bdd->errorInfo()));
 
-        $requete->execute(array(date('Y-m-d')));
+        $requete->execute(array(date("Y-m-d")));
+
+        return $requete->fetch(); //n'existe pas'
+    }
+
+    static function endScan($id) {
+        $bdd = Connexion::connexionbdd();
+        $requete = $bdd->prepare("UPDATE t_scan SET etat = 1 WHERE id=?") or die(print_r($bdd->errorInfo()));
+        $requete->execute(array($id));
+    }
+
+    static function saveRapport($idScan, $idSite, $fileName) {
+        $bdd = Connexion::connexionbdd();
+        $requete = $bdd->prepare("INSERT into t_site_scan (site_id, scan_id, scanfile) "
+                . "value (:sid, :scid, :fil)") or die(print_r($bdd->errorInfo()));
+
+        $requete->bindParam(':sid', $idSite);
+        $requete->bindParam(':scid', $idScan);
+        $requete->bindParam(':fil', $fileName);
+
+        $requete->execute();
     }
 
 }

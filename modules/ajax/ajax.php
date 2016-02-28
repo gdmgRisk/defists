@@ -26,5 +26,5 @@ if (Brain::sessionencours() && Brain::privilegeAdmin()) {
     }
 } else {
 
-    header('location:' . HOMEURL);
+    header('location:' . HOMEDIR);
 }

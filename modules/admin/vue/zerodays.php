@@ -20,6 +20,10 @@
     <div class="center-block container container-fluid">
         <div class="">
             <div class="clearfix"></div>
+            
+            
+            <button onclick="OnClicktraitement()" class="mui-btn mui-btn--large mui-btn--dark mui-btn--danger" style="margin-left: 5%" disabled="" id="btnTraitement">
+                <i class="fa fa-pencil"></i>Traitement</button>
 
             <div class="row">
 

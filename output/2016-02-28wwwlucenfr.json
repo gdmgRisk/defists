@@ -11,10 +11,10 @@
     "Injection CRLF": []
   }, 
   "infos": {
-    "date": "Sun, 28 Feb 2016 04:56:37 +0000", 
+    "date": "Sun, 28 Feb 2016 14:00:27 +0000", 
     "scope": "folder", 
     "version": "Wapiti 2.3.0", 
-    "target": "192.168.0.1"
+    "target": "www.lucen.fr"
   }, 
   "classifications": {
     "Fichier potentiellement dangereux": {
