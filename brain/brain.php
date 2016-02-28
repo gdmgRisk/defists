@@ -188,4 +188,32 @@ class Brain {
         return TRUE;
     }
 
+    static function sauverScan() {
+        $bdd = Connexion::connexionbdd();
+        $requete = $bdd->prepare("INSERT into t_scan (date ,etat ,rapport ,id_admin) "
+                . "value (:d, :e, :r, :ida)") or die(print_r($bdd->errorInfo()));
+
+        $requete->bindParam(':d', date('Y-m-d'));
+        $requete->bindParam(':e', 0);
+        $requete->bindParam(':r', 'null');
+        $requete->bindParam(':ida', $_SESSION['id']);
+
+        $requete->execute();
+        return $bdd->lastInsertId('id');
+    }
+
+    static function rapportScan($id, $chemin) {
+        $bdd = Connexion::connexionbdd();
+        $requete = $bdd->prepare("UPDATE t_scan SET rapport = ? WHERE id=?") or die(print_r($bdd->errorInfo()));
+        $requete->execute(array($chemin, $id));
+    }
+
+    static function scanExist() {
+        $bdd = Connexion::connexionbdd();
+
+        $requete = $bdd->prepare("SELECT * FROM t_scan WHERE date =?") or die(print_r($bdd->errorInfo()));
+
+        $requete->execute(array(date('Y-m-d')));
+    }
+
 }

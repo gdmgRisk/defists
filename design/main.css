@@ -113,3 +113,16 @@ and open the template in the editor.
     margin-top: -1px;
 }
 
+#listSITE button{
+    width: 400px;
+}
+
+.log{
+    color: rgb(255, 162, 0);
+    list-style: none;
+}
+
+.log li{
+    font-size: 1.3em;
+    font-family: "Courier New";
+}

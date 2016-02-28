@@ -1,0 +1,118 @@
+{
+  "vulnerabilities": {
+    "Fichier potentiellement dangereux": [], 
+    "Cross Site Scripting": [], 
+    "Ex\u00e9cution de commandes": [], 
+    "Copie de sauvegarde": [], 
+    "Contournement de htaccess": [], 
+    "Divulgation de fichier": [], 
+    "Injection SQL en aveugle": [], 
+    "Injection SQL": [], 
+    "Injection CRLF": []
+  }, 
+  "infos": {
+    "date": "Sun, 28 Feb 2016 04:56:37 +0000", 
+    "scope": "folder", 
+    "version": "Wapiti 2.3.0", 
+    "target": "192.168.0.1"
+  }, 
+  "classifications": {
+    "Fichier potentiellement dangereux": {
+      "ref": {
+        "The Open Source Vulnerability Database": "http://osvdb.org/"
+      }, 
+      "sol": "L'administrateur devrait v\u00e9rifier r\u00e9guli\u00e8rement si des mises \u00e0 jour sont disponibles pour les scripts et logiciels utilis\u00e9s sur le serveur. Il est aussi conseill\u00e9 de se tenir inform\u00e9 sur les nouvelles vuln\u00e9rabilit\u00e9s trouv\u00e9es en s'abonnant \u00e0 des listes de s\u00e9curit\u00e9 ou en suivant des flux RSS sp\u00e9cialis\u00e9s.", 
+      "desc": "Certains scripts sont connus pour \u00eatre potentiellement vuln\u00e9rables et dangereux. Des listes de tels fichiers existent et sont fr\u00e9quemment utilis\u00e9es par des attaquants pour scanner des sites Internet \u00e0 la recherche de ces vuln\u00e9rabilit\u00e9es."
+    }, 
+    "Cross Site Scripting": {
+      "ref": {
+        "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')": "http://cwe.mitre.org/data/definitions/79.html", 
+        "http://en.wikipedia.org/wiki/Cross-site_scripting": "http://en.wikipedia.org/wiki/Cross-site_scripting", 
+        "VulneraNET wiki: Cross Site Scripting Flaw article": "http://lab.gsi.dit.upm.es/semanticwiki/index.php/Cross_Site_Scripting_Flaw", 
+        "http://www.owasp.org/index.php/Cross_Site_Scripting": "http://www.owasp.org/index.php/Cross_Site_Scripting"
+      }, 
+      "sol": "Afin de se prot\u00e9ger des attaques XSS, il faut s'assurer que les donn\u00e9es retourn\u00e9es dans une page ne contiennent pas certains caract\u00e8res interpr\u00e9t\u00e9s par le navigateur.Certains caract\u00e8res consid\u00e9r\u00e9s dangereux peuvent \u00eatre remplac\u00e9s par leur code d'entit\u00e9 HTML.", 
+      "desc": "Le Cross-site scripting (XSS) est une cat\u00e9gorie de vuln\u00e9rabilit\u00e9s web qui permet d'ex\u00e9cuter du code dans le navigateur des visiteurs du site. Leur exploitation peut par exemple permettre le d\u00e9tournement d'une session qui a \u00e9t\u00e9 ouverte sur un site par un utilisateur valide."
+    }, 
+    "Ex\u00e9cution de commandes": {
+      "ref": {
+        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')": "http://cwe.mitre.org/data/definitions/78.html", 
+        "http://www.owasp.org/index.php/Command_Injection": "http://www.owasp.org/index.php/Command_Injection"
+      }, 
+      "sol": "Ce type de vuln\u00e9rabilit\u00e9 r\u00e9sulte souvent d'un manque de v\u00e9rifications sur les donn\u00e9es soumises par le visiteur. Pour les op\u00e9rations sur les acc\u00e8s fichiers il est pr\u00e9f\u00e9rable d'utiliser des appels syst\u00e8mes sp\u00e9cialis\u00e9s au lieu de tenter de faire ex\u00e9cuter des commandes shell.", 
+      "desc": "Ce type d'attaque consiste \u00e0 faire ex\u00e9cuter des commandes sur le serveur. L'attaquant tente d'injecter les commandes dans les param\u00eatres de requ\u00eates qui lui sont accessibles."
+    }, 
+    "Erreur interne au serveur": {
+      "ref": {
+        "Wikipedia article for 5xx HTTP error codes": "https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_Error"
+      }, 
+      "sol": "Les logs de votre serveur HTTP ou de l'application web concern\u00e9e devraient vous renseigner sur la nature exacte du probl\u00e8me.", 
+      "desc": "Internal server error description"
+    }, 
+    "Copie de sauvegarde": {
+      "ref": {
+        "Testing for Old, Backup and Unreferenced Files (OWASP-CM-006)": "http://www.owasp.org/index.php/Testing_for_Old,_Backup_and_Unreferenced_Files_(OWASP-CM-006)", 
+        "CWE-530: Exposure of Backup File to an Unauthorized Control Sphere": "http://cwe.mitre.org/data/definitions/530.html"
+      }, 
+      "sol": "L'administrateur web doit supprimer manuellement les sauvegardes pr\u00e9sentes sous la racine web et reconfigurer l'\u00e9diteur qu'il utilise pour d\u00e9sactiver les sauvegardes automatiques.", 
+      "desc": "Il se peut que des copies de sauvegarde de scripts soient accessibles sur le serveur. L'administrateur web a du placer volontairement une sauvegarde dans l'id\u00e9e de revenir \u00e0 une pr\u00e9c\u00e9dente version ou involontairement en utilisant un \u00e9diteur configur\u00e9 pour sauver automatiquement une copie apr\u00e8s une certaine dur\u00e9e.Ces fichiers peuvent r\u00e9v\u00e9ler des informations int\u00e9ressantes comme du code source ou encore des identifiants (acc\u00e8s \u00e0 la base de donn\u00e9es)."
+    }, 
+    "Contournement de htaccess": {
+      "ref": {
+        "http://blog.teusink.net/2009/07/common-apache-htaccess-misconfiguration.html": "http://blog.teusink.net/2009/07/common-apache-htaccess-misconfiguration.html", 
+        "CWE-538: File and Directory Information Exposure": "http://cwe.mitre.org/data/definitions/538.html"
+      }, 
+      "sol": "La configuration du htaccess doit \u00eatre minutieusement v\u00e9rifi\u00e9e pour ne pas laisser une porte d'entr\u00e9e \u00e0 un \u00e9ventuel attaquant.", 
+      "desc": "Les fichiers htaccess permettent de restreindre l'acc\u00e8s a des fichiers ou r\u00e9pertoires en fonction d'identifiants ou m\u00e9thode HTTP utilis\u00e9s. Si la configuration a \u00e9t\u00e9 mal faite il peut \u00eatre possible de contourner la restriction."
+    }, 
+    "Consommation anormale de ressource": {
+      "ref": {
+        "CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion')": "http://cwe.mitre.org/data/definitions/400.html", 
+        "http://www.owasp.org/index.php/Asymmetric_resource_consumption_(amplification)": "http://www.owasp.org/index.php/Asymmetric_resource_consumption_(amplification)"
+      }, 
+      "sol": "Le script en cause utilise probablement certaines ressources syst\u00e8me (CPU, m\u00e9moire, acc\u00e8s disque etc) de fa\u00e7on inneficace. Son am\u00e9liorations devrait \u00eatre \u00e9tudi\u00e9e.", 
+      "desc": "Resource consumption description"
+    }, 
+    "Divulgation de fichier": {
+      "ref": {
+        "http://www.owasp.org/index.php/Path_Traversal": "http://www.owasp.org/index.php/Path_Traversal", 
+        "http://www.acunetix.com/websitesecurity/directory-traversal.htm": "http://www.acunetix.com/websitesecurity/directory-traversal.htm", 
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')": "http://cwe.mitre.org/data/definitions/22.html"
+      }, 
+      "sol": "Ne laissez pas aux utilisateurs la possibilit\u00e9 de choisir une ou plusieurs parties du nom d'un fichier ou d'un r\u00e9pertoire. G\u00e9n\u00e9rez vous m\u00eame des noms al\u00e9atoire en cas de cr\u00e9ation ou utilisez des correspondances en cas de templates (un ID num\u00e9rique correspondant \u00e0 une chaine de caract\u00e8res. Utilisez des jails chroot et des restrictions d'acc\u00e8s pour limiter le nombre de fichiers accessibles par le serveur.", 
+      "desc": "Ces techniques permet \u00e0 l'attaquant d'acc\u00e8der \u00e0 des fichiers auxquels il n'est pas sens\u00e9 acc\u00e8der car en dehors de la racine du serveur web. En utilisant certaines s\u00e9quences comme '../', il peut remonter dans l'arborescence pour ainsi lister des r\u00e9pertoires ou obtenir le contenu de fichiers."
+    }, 
+    "Injection SQL en aveugle": {
+      "ref": {
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')": "http://cwe.mitre.org/data/definitions/89.html", 
+        "http://www.imperva.com/resources/adc/blind_sql_server_injection.html": "http://www.imperva.com/resources/adc/blind_sql_server_injection.html", 
+        "http://www.owasp.org/index.php/Blind_SQL_Injection": "http://www.owasp.org/index.php/Blind_SQL_Injection"
+      }, 
+      "sol": "Pour se prot\u00e9ger des injections SQL, les donn\u00e9es fournies par les utilisateurs ne doivent pas \u00eatre utilis\u00e9es telles-quelles dans les requ\u00eates SQL mais doivent faire l'objet de v\u00e9rifications (filtres, \u00e9chappements) approfondies.", 
+      "desc": "Tout comme les failles d'injection SQL classiques, les injections SQL en aveugle permettent \u00e0 un attaquant d'alt\u00e9rer les requ\u00eates normalement ex\u00e9cut\u00e9es sur la base de donn\u00e9es. Ce type de vuln\u00e9rabilit\u00e9 est plus difficile \u00e0 d\u00e9tecter en raison de l'absence de messages d'erreur renvoy\u00e9s par l'application web."
+    }, 
+    "Injection SQL": {
+      "ref": {
+        "http://www.owasp.org/index.php/SQL_Injection": "http://www.owasp.org/index.php/SQL_Injection", 
+        "http://en.wikipedia.org/wiki/SQL_injection": "http://en.wikipedia.org/wiki/SQL_injection", 
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')": "http://cwe.mitre.org/data/definitions/89.html"
+      }, 
+      "sol": "Pour se prot\u00e9ger des injections SQL, les donn\u00e9es fournies par les utilisateurs ne doivent pas \u00eatre utilis\u00e9es telles-quelles dans les requ\u00eates SQL mais doivent faire l'objet de v\u00e9rifications (filtres, \u00e9chappements) approfondies.", 
+      "desc": "Les failles d'injection SQL permettent \u00e0 un attaquant de modifier les requ\u00eates qui sont normalement ex\u00e9cut\u00e9es sur le syst\u00e8me de base de donn\u00e9es. Un attaquant peut alors parvenir \u00e0 extraire o\u00f9 \u00e0 modifier des informations en base. Cela peut aussi potentiellement permettre \u00e0 l'attaquant d'augmenter ses privil\u00e8ges sur le syst\u00e8me."
+    }, 
+    "Injection CRLF": {
+      "ref": {
+        "CWE-93: Improper Neutralization of CRLF Sequences ('CRLF Injection')": "http://cwe.mitre.org/data/definitions/93.html", 
+        "http://www.owasp.org/index.php/CRLF_Injection": "http://www.owasp.org/index.php/CRLF_Injection", 
+        "http://www.acunetix.com/websitesecurity/crlf-injection.htm": "http://www.acunetix.com/websitesecurity/crlf-injection.htm", 
+        "VulneraNET wiki: CRLF Injection article": "http://lab.gsi.dit.upm.es/semanticwiki/index.php/CRLF_Injection"
+      }, 
+      "sol": "V\u00e9rifiez que les couples nom / valeur retourn\u00e9s dans les ent\u00eates HTTP ne contiennent pas la suite de caract\u00e8res CRLF.", 
+      "desc": "Le terme CRLF fait r\u00e9f\u00e9rence \u00e0 Carriage Return (ASCII 13, \\r) Line Feed (ASCII 10, \\n). Dans le protocole HTTP, ces deux caract\u00e8res \u00e0 la suite permettent entre autres de passer \u00e0 la ligne d'ent\u00eate suivante.Un script qui ins\u00e8re directement dans ses ent\u00eates des donn\u00e9es fournies par l'utilisateur peut alors se voir injecter des lignes d'ent\u00eates qui seront interpr\u00e9t\u00e9es par le navigateur de la victime."
+    }
+  }, 
+  "anomalies": {
+    "Consommation anormale de ressource": [], 
+    "Erreur interne au serveur": []
+  }
+}

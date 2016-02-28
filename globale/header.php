@@ -8,6 +8,7 @@
 <body class="nav-md" style="margin: 0px; background-color: white" onload="initInfos();">
 
     <!-- top navigation -->
+    <a href="header.php"></a>
     <div class="top_nav">
 
         <div class="nav_menu" style="margin: 0px">
