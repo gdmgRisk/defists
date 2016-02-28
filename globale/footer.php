@@ -109,31 +109,9 @@
 
 
 <script>
-    
-     var permanotice, tooltip, _alert;
-        $(function () {
-            new PNotify({
-                title: "PNotify",
-                type: "dark",
-                text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
-                nonblock: {
-                    nonblock: true
-                },
-                before_close: function (PNotify) {
-                    // You can access the notice's options with this. It is read only.
-                    //PNotify.options.text;
 
-                    // You can change the notice's options after the timer like this:
-                    PNotify.update({
-                        title: PNotify.options.title + " - Enjoy your Stay",
-                        before_close: null
-                    });
-                    PNotify.queueRemove();
-                    return false;
-                }
-            });
+    var permanotice, tooltip, _alert;
 
-        });
     $(function () {
         var cnt = 10; //$("#custom_notifications ul.notifications li").length + 1;
         TabbedNotification = function (options) {
@@ -183,6 +161,12 @@
 if (Router::parse_url() == 'admin' && sizeof(Router::parametres_url()) > 0) {
     if (Router::parametres_url()[0] == 'listClients') {
         include 'scriptChargement.php';
+    }
+}
+
+if (Router::parse_url() == 'admin' && sizeof(Router::parametres_url()) > 0) {
+    if (Router::parametres_url()[0] == 'zerodays') {
+        include 'scriptChargementZeroDay.php';
     }
 }
 ?>

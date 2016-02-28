@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<body class="nav-md" style="margin: 0px; background-color: white">
+<body class="nav-md" style="margin: 0px; background-color: white" onload="initInfos();">
 
     <!-- top navigation -->
     <div class="top_nav">

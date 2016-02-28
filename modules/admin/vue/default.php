@@ -22,11 +22,11 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="<?php echo HOMEURL;?>/admin/scan">
                             <span class="icontups"> 
                                 <i aria-hidden="true" class="fa fa-codepen"></i>
                             </span>
-                            <span>Log</span>
+                            <span>Scan</span>
                         </a>
                     </li>
                     <li>
@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="<?php echo HOMEURL;?>/admin/zerodays">
                             <span class="icontups">
                                 <i aria-hidden="true" class="fa fa-code"></i>
                             </span>

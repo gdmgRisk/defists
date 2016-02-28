@@ -173,4 +173,19 @@ class Brain {
         $requete->execute();
     }
 
+    static function changerEtat($id, $etat) {
+        if ($etat == 0) {
+
+            $stringRequette = 'UPDATE t_site SET etat = 0 WHERE id=?';
+        } else {
+
+            $stringRequette = 'UPDATE t_site SET etat = 1 WHERE id=?';
+        }
+        $bd = Connexion::connexionbdd();
+        $requete = $bd->prepare($stringRequette) or die(print_r($bd->errorInfo()));
+        $requete->execute(array($id));
+
+        return TRUE;
+    }
+
 }

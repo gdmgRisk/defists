@@ -8,13 +8,6 @@
 
 
 
-if (isset($_POST['zerodays'])) {
-
-
-
-    $html = file_get_html($zeroday);
-}
-
 $zeroday = 'https://www.fireeye.com/current-threats/recent-zero-day-attacks.html';
 
 $tableauZeroDays = array();
@@ -46,4 +39,5 @@ foreach ($html->find('div.list') as $value) {
     }
 }
 
-var_dump($tableauZeroDays);
+
+echo json_encode($tableauZeroDays);
