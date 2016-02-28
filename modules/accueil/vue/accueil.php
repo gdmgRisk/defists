@@ -8,7 +8,7 @@
 
 <div class="content" style="height: 500px; background:url('design/56796v2.jpg') ">
     <div class="center-block" style="height: 500px; background:rgba(2, 2, 2, 0.71) ">
-        <h1 class="title-center" >Lorem ipsum lor decim</h1>
+        <h1 class="title-center text-capitalize" >NoRISKS</h1>
     </div>   
 </div>
 
